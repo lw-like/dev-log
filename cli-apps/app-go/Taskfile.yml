@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GLOBAL_GREETING: EnvsHello
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GLOBAL_GREETING}}"
+    silent: true
+
+  build:
+    dir: build
+    cmds:
+      - go build -ldflags "-X main.GlobalGreeting={{.GLOBAL_GREETING}}" ../cmd/hello.go
+    silent: false
+
+  run:
+    dir: cmd
+    cmds:
+      - go run -ldflags "-X main.GlobalGreeting={{.GLOBAL_GREETING}}" hello.go
+    silent: false
+
+  # task run-hello
+  run-hello:
+    cmds:
+      - ./build/hello.exe
+    silent: true
