@@ -1,0 +1,32 @@
+# Taskfile.yml
+version: '3'
+
+vars:
+  APP_NAME: app-rust.exe
+  BUILD_DIR: "build"
+
+
+runner:
+  shell: bash
+
+tasks:
+  build:
+    desc: Build Rust app in release mode
+    cmds:
+      - cargo build --release
+      - powershell -Command "if (!(Test-Path '{{.BUILD_DIR}}')) { New-Item '{{.BUILD_DIR}}' -ItemType Directory }"
+      - powershell -Command "Copy-Item -Path target\release\{{.APP_NAME}} -Destination {{.BUILD_DIR}}"
+      - cargo clean
+
+
+  run:
+    desc: Run built binary
+    deps: [build]
+    cmds:
+      - ./{{.BUILD_DIR}}/{{.APP_NAME}}
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - cargo clean
+      - rm -rf {{.BUILD_DIR}}

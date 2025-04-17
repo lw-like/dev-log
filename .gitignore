@@ -2,3 +2,4 @@
 notes
 
 **/build
+**/app-rust/target**
