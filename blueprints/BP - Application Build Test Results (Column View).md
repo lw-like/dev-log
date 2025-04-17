@@ -5,14 +5,14 @@ This document presents the build test results for the `app-name` applications in
 | Metric             | `app-1`   | `app-2`   | `app-3`   | `app-4` |
 | ------------------ | ---------- | ---------- | ---------- | ---------- |
 | **Test Date**      | YYYY-MM-DD | YYYY-MM-DD | YYYY-MM-DD | YYYY-MM-DD |
-| **Build Time**     | X MS       | X MS       | X MS       | X MS       |
+| **Build Time**     | X ms       | X ms       | X ms       | X ms       |
 | **Build Size**     | X KB       | X KB       | X KB       | X KB       |
-| **Execution Time** | X MS       | X MS       | X MS       | X MS       |
+| **Execution Time** | X ms       | X ms       | X ms       | X ms       |
 | **Notes**          |            |            |            |            |
 | **Test Date**      | YYYY-MM-DD | YYYY-MM-DD | YYYY-MM-DD | YYYY-MM-DD |
-| **Build Time**     | X MS       | X MS       | X MS       | X MS       |
+| **Build Time**     | X ms       | X ms       | X ms       | X ms       |
 | **Build Size**     | X KB       | X KB       | X KB       | X KB       |
-| **Execution Time** | X MS       | X MS       | X MS       | X MS       |
+| **Execution Time** | X ms       | X ms       | X ms       | X ms       |
 | **Notes**          |            |            |            |            |
 | ...                | ...        | ...        | ...        | ...        |
 
