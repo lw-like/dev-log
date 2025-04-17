@@ -29,4 +29,3 @@ tasks:
     desc: Clean build artifacts
     cmds:
       - cargo clean
-      - rm -rf {{.BUILD_DIR}}

@@ -1,0 +1,69 @@
+# Taskfile.yml
+version: '3'
+
+tasks:
+  sleepTask:
+    cmds:
+      - powershell -Command "sleep 4"
+
+  buildApp:
+    cmds:
+      - cd {{ .app_dir }} && task build
+    requires:
+      vars: [app_dir]
+
+  build_and_measure_build_time:
+    requires:
+      vars: [dir]
+    cmds:
+      - "echo Start time measurement"
+      - task: buildApp
+        vars:
+          app_dir: '{{.dir}}'
+      - task: end_timer
+        vars:
+          start_time: '{{now.UnixMilli}}'
+          dir: '{{.dir}}'
+      - echo "Time measurement done."
+    silent: true
+
+  end_timer:
+    vars:
+      end_time: '{{now.UnixMilli}}'
+    requires:
+      vars: [start_time, dir]
+    cmds:
+      - "echo ####### {{.dir}} ###########Duration: {{sub .end_time .start_time}} ms"
+
+  build_cs:
+    cmds:
+      - task: build_and_measure_build_time
+        vars: 
+          dir: 'app-cs'
+
+  build_go:
+    cmds:
+      - task: build_and_measure_build_time
+        vars: 
+          dir: 'app-go'
+
+  build_py:
+    cmds:
+      - task: build_and_measure_build_time
+        vars: 
+          dir: 'app-py'
+
+  build_rust:
+    cmds:
+      - task: build_and_measure_build_time
+        vars: 
+          dir: 'app-rust'
+
+
+  build_all:
+    cmds:
+      - task: build_cs
+      - task: build_go
+      - task: build_py
+      - task: build_rust
+    silent: true
