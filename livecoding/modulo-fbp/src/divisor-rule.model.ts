@@ -3,4 +3,4 @@ export type DivisorRule = {
     label: string;
 }
 
-export type RulesMap = {[key: string]: DivisorRule | undefined};
+export type RulesMap = { [key: string]: DivisorRule | undefined };
