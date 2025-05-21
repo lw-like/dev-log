@@ -4,7 +4,7 @@ IyBGaXp6QnV6egoKRXhhbXBsZSBPdXRwdXQgZm9yIEZpenpCdXp6IGZvciAxIHRvIDIwCjEKMgpGaXp6
 
 ## Install
 
-`Node 24.0.2` is reqired.
+`Node 24.0.2` is required.
 
 ```sh
 npm i
